@@ -46,7 +46,7 @@ loss = F.cross_entropy(model_output, y)
 loss.backward()
 optimizer.step() 
 ```
-where 'optimizer' is the SGD optimizer. Then, you can implement q-SGD simply re-writing these lines to the following lines:
+where 'optimizer' is the SGD optimizer. Then, you can implement q-SGD by simply re-writing these lines to the following lines:
 
 ```
 loss = F.cross_entropy(model_output, y, reduction='none')
