@@ -39,7 +39,7 @@ In this paper, we propose a new stochastic first-order method for empirical risk
 
 ## How to modify your own code to use q-SGD
 
-For example, in pytorch, suppose that you have the following lines:
+Implementing q-SGD only requires modifications of one line or few lines in the codes that use SGD. For example, in pytorch, suppose that you have the following lines:
 
 ```
 loss = F.cross_entropy(model_output, y)
