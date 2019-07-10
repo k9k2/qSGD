@@ -1,7 +1,7 @@
 # q-SGD: a simple modification of SGD to accelerate training and improve test accuracy
 This repo consists Pytorch code for "[A Stochastic First-Order Method for Ordered Empirical Risk Minimization](https://arxiv.org/abs/xxx)".
 
-The proposed algorithm, q-SGD, **is fast (computationally efficient per epoch), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing q-SGD only requires modifications of one line or few lines in any code that uses SGD. The q-SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of q-SGD in that q-SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
+The proposed algorithm, q-SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing q-SGD only requires modifications of one line or few lines in any code that uses SGD. The q-SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of q-SGD in that q-SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
 
 <p align="center">
     <img src="fig/fig1.png" height="400" width= "800">
