@@ -27,7 +27,7 @@ CIFAR-10 with WideResNet28_10
 If you find this useful in your research, please consider citing:
 
 ```
-@article{kawaguchi2019stochastic,
+@article{qsgd2019kkhl,
   title={A Stochastic First-Order Method for Ordered Empirical Risk Minimization},
   author={Kawaguchi, Kenji and Lu, Haihao},
   journal={arXiv preprint arXiv:1907.04371},
