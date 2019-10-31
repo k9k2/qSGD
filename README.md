@@ -21,7 +21,7 @@ CIFAR-10 with WideResNet28_10
 </p>
 
 <p align="center">
-    <img src="fig/table2.png" height="500" width= "700">
+    <img src="fig/table2_1.png" height="500" width= "700">
 </p>
 
 If you find this useful in your research, please consider citing:
