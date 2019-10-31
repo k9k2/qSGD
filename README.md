@@ -17,7 +17,7 @@ CIFAR-10 with WideResNet28_10
 | Ordered SGD   | 3.06%      |
 
 <p align="center">
-    <img src="fig/fig4.png" height="1200" width= "800">
+    <img src="fig/fig4_1.png" height="1200" width= "800">
 </p>
 
 <p align="center">
