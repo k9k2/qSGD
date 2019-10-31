@@ -1,20 +1,20 @@
-# q-SGD: a simple modification of SGD to accelerate training and improve test accuracy
+# Ordered SGD: a simple modification of SGD to accelerate training and improve test accuracy
 This repo consists Pytorch code for "[Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization](https://arxiv.org/abs/1907.04371)".
 
-The proposed algorithm, q-SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing q-SGD only requires modifications of one line or few lines in any code that uses SGD. The q-SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of q-SGD in that q-SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
+The proposed algorithm, Ordered SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing Ordered SGD only requires modifications of one line or few lines in any code that uses SGD. The Ordered SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of Ordered SGD in that Ordered SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
 
 <p align="center">
     <img src="fig/fig1.png" height="400" width= "800">
 </p>
 
-As a result of the above mechanism (and other theoretical facts), q-SGD is fast and can improve test errors as shown in the following figure and tables:
+As a result of the above mechanism (and other theoretical facts), Ordered SGD is fast and can improve test errors as shown in the following figure and tables:
 
 CIFAR-10 with WideResNet28_10
 
 | Method        |  test error |
 | ------------- | ---------- |
 | SGD           | 3.24%      |
-| q-SGD         | 3.06%      |
+| Ordered SGD   | 3.06%      |
 
 <p align="center">
     <img src="fig/fig4.png" height="1200" width= "800">
@@ -37,16 +37,16 @@ If you find this useful in your research, please consider citing:
 
 In this paper, we propose a new stochastic first-order method for empirical risk minimization problems such as those that arise in machine learning. The traditional approaches, such as (mini-batch) stochastic gradient descent (SGD), utilize an unbiased gradient estimator of the empirical average loss. In contrast, we develop a computationally efficient method to construct a gradient estimator that is purposely biased toward those observations with higher current losses, and that itself is an unbiased gradient estimator of an ordered modification of the empirical average loss. On the theory side, we show that the proposed algorithm is guaranteed to converge at a sublinear rate to a global optimum for convex loss and to a critical point for non-convex loss. Furthermore, we prove a new generalization bound for the proposed algorithm. On the empirical side, we present extensive numerical experiments, in which our proposed method consistently improves the test errors compared with the standard mini-batch SGD in various models including SVM, logistic regression, and (non-convex) deep learning problems.
 
-## How to modify your own code to use q-SGD
+## How to modify your own code to use Ordered SGD
 
-Implementing q-SGD only requires modifications of one line or few lines in any code that uses SGD. For example, in pytorch, suppose that you have the following lines:
+Implementing Ordered SGD only requires modifications of one line or few lines in any code that uses SGD. For example, in pytorch, suppose that you have the following lines:
 
 ```
 loss = F.cross_entropy(model_output, y)
 loss.backward()
 optimizer.step() 
 ```
-where 'optimizer' is the SGD optimizer. Then, you can implement q-SGD by simply re-writing these lines to the following lines:
+where 'optimizer' is the SGD optimizer. Then, you can implement Ordered SGD by simply re-writing these lines to the following lines:
 
 ```
 loss = F.cross_entropy(model_output, y, reduction='none')
@@ -55,7 +55,7 @@ loss.backward()
 optimizer.step() 
 ```
 
-where s is the mini-batch size (e.g., s = 64) and q is the hyper-parameter of q-SGD (e.g., q = 32). 
+where s is the mini-batch size (e.g., s = 64) and q is the hyper-parameter of Ordered SGD (e.g., q = 32). 
 
 To avoid hyper-parameter search for the value of q, we used the following rule to automatically adjust q across all the experiments: q = s at the beginning of training, q = int(s/2) once train_acc >= 80%, q = int(s/4) once train_acc >= 90%, q = int(s/8) once train_acc >= 95%, and q = int(s/16) once train_acc >= 99:5%, where train_acc represents training accuracy.
 
@@ -83,19 +83,19 @@ LeNet on MNIST via SGD without data augmentation:
 python main.py --dataset=mnist --data-aug=0 --model=LeNet  --method=0
 ```    
 
-LeNet on MNIST via q-SGD without data augmentation:
+LeNet on MNIST via Ordered SGD without data augmentation:
 
 ```
 python main.py --dataset=mnist --data-aug=0 --model=LeNet  --method=1
 ```
 
-LeNet on KMNIST via q-SGD with data augmentation:
+LeNet on KMNIST via Ordered SGD with data augmentation:
 
 ```
 python main.py --dataset=kmnist --data-aug=1 --model=LeNet  --method=1
 ```
 
-LeNet on Fashion MNIST via q-SGD with data augmentation:
+LeNet on Fashion MNIST via Ordered SGD with data augmentation:
 
 ```
 python main.py --dataset=fashionmnist --data-aug=1 --model=LeNet  --method=1
@@ -107,7 +107,7 @@ PreActResNet18 on CIFAR-10 via SGD without data augmentation:
 python main.py --dataset=cifar10 --data-aug=0 --model=PreActResNet18 --method=0
 ```    
 
-PreActResNet18 on CIFAR-10 via q-SGD without data augmentation：
+PreActResNet18 on CIFAR-10 via Ordered SGD without data augmentation：
 
 ```
 python main.py --dataset=cifar10 --data-aug=0 --model=PreActResNet18 --method=1
@@ -119,13 +119,13 @@ PreActResNet18 on CIFAR-10 via SGD with data augmentation:
 python main.py --dataset=cifar10 --data-aug=1 --model=PreActResNet18 --method=0
 ```    
 
-PreActResNet18 on CIFAR-10 via q-SGD with data augmentation：
+PreActResNet18 on CIFAR-10 via Ordered SGD with data augmentation：
 
 ```
 python main.py --dataset=cifar10 --data-aug=1 --model=PreActResNet18 --method=1
 ```
 
-##### After training via both SGD and q-SGD, use the following commond in the root folder for plotting:
+##### After training via both SGD and Ordered SGD, use the following commond in the root folder for plotting:
 
 LeNet on MNIST without data augmentation:
 
@@ -167,7 +167,7 @@ for SGD:
 python cifar.py --dataset cifar10 --p 0.5 --arch wrn --depth 28 --widen-factor 10 --schedule 100 200 --method=0 
 ```
 
-for q-SGD:
+for Ordered SGD:
 
 ```
 python cifar.py --dataset cifar10 --p 0.5 --arch wrn --depth 28 --widen-factor 10 --schedule 100 200 --method=1 
