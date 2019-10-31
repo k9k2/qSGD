@@ -27,8 +27,8 @@ CIFAR-10 with WideResNet28_10
 If you find this useful in your research, please consider citing:
 
 ```
-@article{qsgd2019kh,
-  title={A Stochastic First-Order Method for Ordered Empirical Risk Minimization},
+@article{osgd2019kh,
+  title={Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization},
   author={Kawaguchi, Kenji and Lu, Haihao},
   journal={arXiv preprint arXiv:1907.04371},
   year={2019}
