@@ -4,7 +4,7 @@ This repo consists Pytorch code for "[Ordered SGD: A New Stochastic Optimization
 The proposed algorithm, Ordered SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing Ordered SGD only requires modifications of one line or few lines in any code that uses SGD. The Ordered SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of Ordered SGD in that Ordered SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
 
 <p align="center">
-    <img src="fig/fig1.png" height="400" width= "800">
+    <img src="fig/fig1_1.png" height="400" width= "800">
 </p>
 
 As a result of the above mechanism (and other theoretical facts), Ordered SGD is fast and can improve test errors as shown in the following figure and tables:
