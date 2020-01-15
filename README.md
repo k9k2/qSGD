@@ -1,5 +1,5 @@
 # Ordered SGD: a simple modification of SGD to accelerate training and improve test accuracy
-This repo consists Pytorch code for "[Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization](https://arxiv.org/abs/1907.04371)".
+This repo consists Pytorch code for the AISTATS 2020 paper "[Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization](https://arxiv.org/abs/1907.04371)".
 
 The proposed algorithm, Ordered SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing Ordered SGD only requires modifications of one line or few lines in any code that uses SGD. The Ordered SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of Ordered SGD in that Ordered SGD learns a different type of models than those learned by the standard SGD, which is often beneficial.
 
