@@ -1,5 +1,5 @@
 # Ordered SGD: a simple modification of SGD to accelerate training and improve test accuracy
-This repo consists Pytorch code for the AISTATS 2020 paper "[Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization](http://www.mit.edu/~kawaguch/pub/kawaguchi2020ordered.pdf)".
+This repo consists Pytorch code for the AISTATS 2020 paper "[Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization](http://proceedings.mlr.press/v108/kawaguchi20a.html)".
 
 The proposed algorithm, Ordered SGD, **is fast (computationally efficient), is easy to be implemented, and comes with theoretical gurantees in both optimization and generalization**. Implementing Ordered SGD only requires modifications of one line or few lines in any code that uses SGD. The Ordered SGD algorithm accelerates training and improves test accuracy by focusing on the important data samples. The following figure illustrates the advantage of Ordered SGD in that Ordered SGD learns a different type of models than those learned by the standard SGD, which is sometimes beneficial.
 
@@ -27,11 +27,17 @@ CIFAR-10 with WideResNet28_10
 If you find this useful in your research, please consider citing:
 
 ```
-@inproceedings{osgd2020kh,
-   title={Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization},
-   author={Kawaguchi, Kenji and Lu, Haihao},
-   booktitle={23rd International Conference on Artificial Intelligence and Statistics (AISTATS)},
-   year={2020},
+@InProceedings{pmlr-v108-kawaguchi20a,
+  title = 	 {Ordered SGD: A New Stochastic Optimization Framework for Empirical Risk Minimization},
+  author = 	 {Kawaguchi, Kenji and Lu, Haihao},
+  booktitle = 	 {Proceedings of the Twenty Third International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {669--679},
+  year = 	 {2020},
+  editor = 	 {Chiappa, Silvia and Calandra, Roberto},
+  volume = 	 {108},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {26--28 Aug},
+  publisher = 	 {PMLR}
 }
 ```
 
